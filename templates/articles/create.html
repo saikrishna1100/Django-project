@@ -1,0 +1,35 @@
+
+{% load static  %}
+<html>
+<head>
+  {% block title %}My Website{% endblock %}
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body  >
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    {% block content %}
+    
+    {%  if not created %}
+    
+
+    <form action='.' method = "POST" id="ff">
+
+        {% csrf_token %}
+        
+        {{ form.as_p }}
+       <button type="submit">post</button>
+    </form>
+    {% else %}
+    your article was created
+    <a href="/articles/{{object.id}}">{{object.title}}</a>
+    {% endif %}
+    {% endblock content%}
+</body>
+</html>
+
+
+
+
+
+

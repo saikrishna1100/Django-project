@@ -1,0 +1,15 @@
+<html>
+     {% extends 'base.html' %}
+    {% block content  %}
+    {% load static  %}
+    <ul>
+      <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+{% for x in list %}
+  {% if x.title  %}
+
+  <li><a href="/articles/{{x.id}}">{{x.title}}</a></li>
+  {% endif %}
+ {% endfor %}
+    </ul>
+    {% endblock content  %} 
+</html>
