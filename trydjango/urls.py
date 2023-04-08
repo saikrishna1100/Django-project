@@ -20,6 +20,7 @@ from articles import views as article_views
 from accounts.views import login_view,register_view,logout_view
 from university.views import show_college_data
 from university.views import add_college
+from hostel.views import show_hostel,show_rooms,show_ind
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("login/",login_view),
@@ -30,6 +31,10 @@ urlpatterns = [
     path("addcollege/",add_college),
     path("register/",register_view),
     path("logout/",logout_view),
+    path("hstl/",show_hostel),
+    path("hstl_rooms/",show_rooms),
+    path("hstl_rooms/<int:room_id>",show_ind),
+    
     #path("articles/<int:id>/",views.article_detail_view)
    
 ]

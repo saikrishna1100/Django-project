@@ -1,8 +1,7 @@
 from django import forms 
 from .models import Article
 
-from django import forms
-from .models import Article
+
 
 class ArticleForm(forms.ModelForm):
     required_css_class = 'required-field'

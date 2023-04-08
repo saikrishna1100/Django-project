@@ -4,10 +4,10 @@
     {% load static  %}
     <ul>
       <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-      {{user.username}}
-{% for x in list %}
-  {% if x.title  %}
-  <li><a href="/articles/{{x.id}}">{{x.title}}</a></li>
+{% for x in data %}
+  {% if x.room_id  %}
+
+  <li><a href="/hstl_rooms/{{x.room_id}}">{{x.count}}</a></li>
   {% endif %}
  {% endfor %}
     </ul>

@@ -1,0 +1,28 @@
+
+{% load static  %}
+<html>
+<head>
+  {% block title %}My Website{% endblock %}
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body  >
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    {% block content %}
+    
+    <form action='.' method = "POST" id="ff">
+
+        {% csrf_token %}
+        
+        {{ form.as_p }}
+       <button type="submit">post</button>
+    </form>
+    {% endblock content%}
+</body>
+</html>
+
+
+
+
+
+

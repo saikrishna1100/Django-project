@@ -31,6 +31,8 @@ def article_create_view(request):
         # article_object=Article.objects.create(title=title,content=content)
         article_object=form.save()
         context["form"]=ArticleForm()
+        context["object"]=article_object
+        context["created"]=True
     return render(request,"articles/create.html",context=context)
 
 @login_required

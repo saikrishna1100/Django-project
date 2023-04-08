@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,14 +22,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-0(e113+llj##(z31bb!^h$764s9pg_jt*_-5ossr@7bg&3-4zq'
+SECRET_KEY = os.environ.get("SECRET_KEY", 'django-insecure-0(e113+llj##(z31bb!^h$764s9pg_jt*_-5ossr@7bg&3-4zq')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = str(os.environ.get("debug"))=="1"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1","localhost"]
 
-
+# ALLOWED_HOSTS = []
+# if not DEBUG:
+#     ALLOWED_HOSTS+=[os.environ.get("ALLOWED_HOST")]
 # Application definition
 
 INSTALLED_APPS = [
@@ -39,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'articles',
     'university',
+    'hostel',
     
 ]
 
